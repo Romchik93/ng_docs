@@ -1,0 +1,217 @@
+/* --- 1. ПЕРЕМЕННЫЕ И БАЗА --- */
+:root {
+    --container-width: 1400px;
+    --brand-blue: #0C65AF;
+    --text-main: #1D1D1B;
+    --text-sec: #56738F;
+    --bg-card: #FFFFFF;
+    --border-color: #E1E4E6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    background-color: #F9F9F9; /* Чуть серый фон для всей страницы */
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+/* Общий контейнер */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* --- 2. ШАПКА (HEADER) --- */
+.header {
+    background: #fff;
+    border-bottom: 1px solid var(--border-color);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Логотип */
+.logo a {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 32px !important; /* Force fix размера */
+    width: auto;
+    display: block;
+}
+
+.logo-divider {
+    display: inline-block;
+    width: 1px;
+    height: 24px;
+    background-color: var(--border-color);
+    margin: 0 15px;
+}
+
+.logo-text {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--text-main);
+}
+
+/* Поиск и кнопки */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: 280px;
+    font-size: 14px;
+}
+
+.btn-login {
+    color: var(--brand-blue);
+    border: 1px solid var(--brand-blue);
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.btn-login:hover {
+    background: var(--brand-blue);
+    color: #fff;
+}
+
+/* --- 3. СЕТКА (GRID LAYOUT) --- */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px; /* Контент | Сайдбар */
+    gap: 40px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    align-items: start;
+}
+
+.content-area {
+    min-width: 0; /* Fix для Grid overflow */
+}
+
+/* Сайдбар */
+.main-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.sticky-nav {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.nav-tree li { margin-bottom: 10px; }
+.nav-tree a { font-weight: 500; color: var(--text-sec); display: block; padding: 5px 0; }
+.nav-tree a:hover, .nav-tree li.active > a { color: var(--brand-blue); }
+
+.sub-tree { margin-left: 20px; margin-top: 5px; font-size: 0.9em; }
+
+/* --- 4. КАРТОЧКИ И СЕКЦИИ --- */
+.section { margin-bottom: 60px; }
+.main-title { font-size: 32px; margin-bottom: 10px; color: var(--text-main); }
+.section-desc { font-size: 18px; color: var(--text-sec); margin-bottom: 30px; }
+.h2 { font-size: 24px; margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
+
+/* Grid Cards System */
+.grid-cards {
+    display: grid;
+    gap: 20px;
+}
+.two-col { grid-template-columns: 1fr 1fr; }
+.three-col { grid-template-columns: 1fr 1fr 1fr; }
+.four-col { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+/* Стиль карточки */
+.card-hero, .card-u, .card-res, .faq-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-hero:hover, .card-u:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--brand-blue);
+}
+
+/* Заголовки внутри карточек */
+h3 { margin: 0 0 5px 0; font-size: 16px; color: var(--text-main); }
+h4 { margin: 10px 0 5px 0; font-size: 15px; font-weight: 700; }
+p { margin: 0; color: var(--text-sec); font-size: 14px; line-height: 1.4; }
+
+/* Иконки-заглушки */
+.hero-icon, .u-icon, .res-icon {
+    width: 40px; height: 40px; border-radius: 8px; margin-bottom: 15px;
+    background: #eee;
+}
+.i-blue { background: #E3F2FD; color: #0C65AF; }
+.i-green { background: #E8F5E9; color: #2E7D32; }
+
+/* --- 5. ПОДВАЛ (FOOTER) --- */
+.footer {
+    background: #fff;
+    border-top: 1px solid var(--border-color);
+    padding: 40px 0;
+    margin-top: auto; /* Прижимает к низу */
+}
+
+.footer-compact {
+    display: flex;
+    justify-content: space-between;
+}
+
+.f-brand-col p { font-size: 12px; margin-top: 10px; }
+
+.f-links-compact {
+    display: flex;
+    gap: 60px;
+}
+.f-links-compact h5 { margin: 0 0 15px 0; font-size: 14px; text-transform: uppercase; color: var(--text-sec); }
+.f-links-compact li { margin-bottom: 8px; font-size: 14px; }
+
+/* Адаптив */
+@media (max-width: 1024px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .three-col, .four-col { grid-template-columns: 1fr 1fr; }
+    .main-sidebar { display: none; }
+}
+
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; height: auto; padding: 10px; }
+    .two-col, .three-col, .four-col { grid-template-columns: 1fr; }
+    .footer-compact { flex-direction: column; gap: 30px; }
+}

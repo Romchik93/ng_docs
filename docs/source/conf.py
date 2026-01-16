@@ -29,7 +29,7 @@ templates_path = ['_templates']
 html_static_path = ['_static']
 html_additional_pages = {"index": "index.html"}
 html_css_files = [
-    'css/style.css',
+    'css/theme.css',
 ]
 
 # -- Options for HTML output

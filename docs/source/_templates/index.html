@@ -38,7 +38,6 @@
         <section id="need" class="section">
             <h1 class="main-title">Мне нужно...</h1>
             <p class="section-desc">Выберите то, что вам сейчас необходимо, чтобы быстро найти нужную информацию.</p>
-            
             <div class="grid-cards three-col">
                 <div class="card-hero">
                     <div class="hero-icon i-blue"><i class="fa fa-flag"></i></div>
@@ -52,7 +51,6 @@
                     <div class="hero-icon i-orange"><i class="fa fa-book"></i></div>
                     <div class="hero-body"><h3>Юзергиды</h3><p>Инструкции по продуктам</p></div>
                 </div>
-                
                 <div class="card-hero">
                     <div class="hero-icon i-purple"><i class="fa fa-globe"></i></div>
                     <div class="hero-body"><h3>Публикация</h3><p>Работа с веб-картами</p></div>
@@ -65,7 +63,6 @@
                     <div class="hero-icon i-cyan"><i class="fa fa-map-marker-alt"></i></div>
                     <div class="hero-body"><h3>Трекинг</h3><p>GPS-мониторинг объектов</p></div>
                 </div>
-                
                 <div class="card-hero">
                     <div class="hero-icon i-blue"><i class="fa fa-mobile-alt"></i></div>
                     <div class="hero-body"><h3>Сбор данных</h3><p>Полевые работы в Mobile</p></div>
@@ -78,7 +75,6 @@
                     <div class="hero-icon i-orange"><i class="fa fa-database"></i></div>
                     <div class="hero-body"><h3>Данные</h3><p>Заказ наборов геоданных</p></div>
                 </div>
-                
                 <div class="card-hero">
                     <div class="hero-icon i-purple"><i class="fa fa-exchange-alt"></i></div>
                     <div class="hero-body"><h3>Миграция</h3><p>Переход с других систем</p></div>
@@ -88,13 +84,11 @@
 
         <section id="guides" class="section">
             <h2 class="h2">Подробные юзергиды по ПО и сервисам</h2>
-            
             <div id="for-users" class="subsection">
                 <div class="group-label">
                     <span class="label-icon l-user"><i class="fa fa-user"></i></span>
                     <h3>ДЛЯ ПОЛЬЗОВАТЕЛЕЙ</h3>
                 </div>
-                
                 <div class="grid-cards four-col">
                     <div class="card-u">
                         <span class="card-tag">Веб</span>
@@ -116,7 +110,6 @@
                         <div class="u-icon i-purple"><i class="fa fa-database"></i></div>
                         <h4>NextGIS Data</h4><p>Продажа данных</p>
                     </div>
-                    
                     <div class="card-u">
                         <span class="card-tag">Настольная</span>
                         <div class="u-icon i-red"><i class="fa fa-desktop"></i></div>
@@ -137,7 +130,6 @@
                         <div class="u-icon i-green"><i class="fa fa-home"></i></div>
                         <h4>Rosreestr</h4><p>Данные ЕГРН</p>
                     </div>
-                    
                     <div class="card-u">
                         <span class="card-tag">Веб</span>
                         <div class="u-icon i-orange"><i class="fa fa-edit"></i></div>
@@ -160,7 +152,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="for-devs" class="subsection">
                 <div class="group-label">
                     <span class="label-icon l-dev"><i class="fa fa-code"></i></span>
@@ -273,7 +264,6 @@
                         <li><a href="#">Архив вебинаров</a></li>
                     </ul>
                 </div>
-                
                 <div class="card-res">
                     <div class="res-icon i-orange"><i class="fa fa-graduation-cap"></i></div>
                     <h4>Обучающие курсы</h4>
@@ -368,6 +358,32 @@
         <div></div>
     </div>
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll(".nav-tree li");
+        
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute("id");
+                }
+            });
+            
+            navLi.forEach((li) => {
+                li.classList.remove("active");
+                const href = li.querySelector("a").getAttribute("href");
+                // Простая проверка: если ссылка содержит ID текущей секции
+                if (href.includes("#" + current)) {
+                    li.classList.add("active");
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

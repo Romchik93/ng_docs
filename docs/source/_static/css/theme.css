@@ -4,23 +4,20 @@
     --brand-blue: #0C65AF;
     --text-main: #1D1D1B;
     --text-sec: #56738F;
-    --bg-card: #FFFFFF;
+    --bg-card: #F0F2F4; /* ВОТ ОН: Серо-синий фон плашек */
     --bg-body: #FFFFFF;
-    --bg-gray: #F5F7F9;
+    --bg-gray: #F5F7F9; /* Фон для FAQ хедеров */
     --border-color: #E1E4E6;
 }
 
 * { box-sizing: border-box; }
 
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     color: var(--text-main);
     background-color: var(--bg-body);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    display: flex; flex-direction: column; min-height: 100vh;
 }
 
 a { text-decoration: none; color: inherit; transition: color 0.2s; }
@@ -30,7 +27,7 @@ ul { list-style: none; padding: 0; margin: 0; }
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 40px;
-    width: 100%; /* Гарантируем, что занимает всю ширину до max-width */
+    width: 100%;
 }
 
 /* --- 2. ШАПКА (HEADER) --- */
@@ -38,47 +35,24 @@ ul { list-style: none; padding: 0; margin: 0; }
     background: #fff;
     border-bottom: 1px solid var(--border-color);
     height: 80px;
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    display: flex; align-items: center;
+    position: sticky; top: 0; z-index: 1000;
 }
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
+.header-content { display: flex; justify-content: space-between; align-items: center; width: 100%; }
 
 .logo a { display: flex; align-items: center; }
 .logo img { height: 32px !important; width: auto; display: block; }
-.logo-divider {
-    display: inline-block; width: 1px; height: 24px;
-    background-color: var(--border-color); margin: 0 15px;
-}
+.logo-divider { display: inline-block; width: 1px; height: 24px; background-color: var(--border-color); margin: 0 15px; }
 .logo-text { font-weight: 500; font-size: 18px; color: var(--text-main); }
 
 .header-right { display: flex; align-items: center; gap: 20px; }
 .search-input {
-    padding: 10px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    width: 280px;
-    font-size: 14px;
-    outline: none;
+    padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 4px; width: 280px; font-size: 14px; outline: none;
 }
 .search-input:focus { border-color: var(--brand-blue); }
-
 .btn-login {
-    color: var(--brand-blue);
-    border: 1px solid var(--brand-blue);
-    padding: 8px 20px;
-    border-radius: 4px;
-    font-weight: 500;
-    font-size: 14px;
-    cursor: pointer;
+    color: var(--brand-blue); border: 1px solid var(--brand-blue); padding: 8px 20px;
+    border-radius: 4px; font-weight: 500; font-size: 14px; cursor: pointer;
 }
 .btn-login:hover { background: var(--brand-blue); color: #fff; }
 
@@ -86,107 +60,92 @@ ul { list-style: none; padding: 0; margin: 0; }
 .main-layout {
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 300px; /* Контент | Сайдбар */
-    gap: 60px; /* Чуть больше воздуха между контентом и меню */
-    padding-top: 40px;
-    padding-bottom: 80px;
-    align-items: start;
+    /* Контент тянется (1fr), Сайдбар фиксирован (300px) */
+    grid-template-columns: 1fr 300px; 
+    gap: 40px; /* Уменьшил gap, чтобы расширить основной блок */
+    padding-top: 40px; padding-bottom: 80px; align-items: start;
 }
-
 .content-area { min-width: 0; }
 
-/* САЙДБАР (Центрированный) */
+/* САЙДБАР */
 .main-sidebar {
     position: sticky;
-    /* Центрируем визуально: 20-30vh от верха, чтобы не прилипал к шапке, но был по центру */
-    top: 20vh; 
+    top: 120px; /* Чуть ниже шапки */
+}
+.sticky-nav { background: transparent; padding: 0; border: none; }
+
+.nav-tree li { margin-bottom: 14px; }
+.nav-tree a {
+    font-weight: 500; color: var(--text-sec); display: block;
+    position: relative; font-size: 15px; transition: color 0.2s;
 }
 
-.sticky-nav {
-    background: transparent;
-    padding: 0;
-    border: none;
-}
-.nav-tree li { margin-bottom: 14px; }
-.nav-tree a { font-weight: 500; color: var(--text-sec); display: block; position: relative; font-size: 15px; }
+/* Активное состояние (Scroll Spy) */
 .nav-tree li.active > a { color: var(--brand-blue); }
+
+/* Синяя черта слева */
 .nav-tree li.active > a::before {
     content: "";
-    position: absolute; left: -20px; top: 50%; transform: translateY(-50%);
-    width: 3px; height: 100%; background: var(--brand-blue);
+    position: absolute;
+    left: -20px; top: 0; bottom: 0; /* На всю высоту строки */
+    width: 3px;
+    background: var(--brand-blue);
+    border-radius: 2px;
 }
+
 .sub-tree { margin-left: 15px; margin-top: 10px; font-size: 0.9em; border-left: 2px solid #E1E4E6; padding-left: 15px; }
 
-/* --- 4. ТИПОГРАФИКА И СЕКЦИИ --- */
+/* --- 4. КАРТОЧКИ --- */
 .section { margin-bottom: 80px; }
 .main-title { font-size: 38px; margin: 0 0 15px 0; color: var(--text-main); font-weight: 700; letter-spacing: -0.02em; }
 .section-desc { font-size: 20px; color: var(--text-sec); margin: 0 0 40px 0; max-width: 800px; line-height: 1.5; }
 .h2 { font-size: 28px; margin-bottom: 30px; font-weight: 700; }
 
-.group-label {
-    display: flex; align-items: center; gap: 12px;
-    margin-top: 60px; margin-bottom: 24px;
-}
+.group-label { display: flex; align-items: center; gap: 12px; margin-top: 60px; margin-bottom: 24px; }
 .group-label h3 { margin: 0; font-size: 14px; text-transform: uppercase; color: var(--text-sec); font-weight: 700; letter-spacing: 0.05em; }
-.label-icon {
-    width: 24px; height: 24px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; color: #fff;
-}
+.label-icon { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #fff; }
 .l-user { background-color: var(--brand-blue); }
 .l-dev { background-color: #2E7D32; }
 
-/* --- 5. КАРТОЧКИ --- */
+/* Grid Cards */
 .grid-cards { display: grid; gap: 24px; }
 .three-col { grid-template-columns: repeat(3, 1fr); }
 .four-col { grid-template-columns: repeat(4, 1fr); }
 .two-col { grid-template-columns: 1fr 1fr; }
 
-/* Карточка Hero (вытянутая) */
-.card-hero {
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 24px; /* Больше отступов внутри */
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+/* СТИЛИ ПЛАШЕК (Возвращаем цвет!) */
+.card-hero, .card-u, .card-res {
+    background: var(--bg-card); /* #F0F2F4 */
+    border: 1px solid transparent; /* Чтобы не прыгало при ховере */
+    border-radius: 10px;
     transition: all 0.2s ease;
-    min-height: 110px; /* Фиксируем минимальную высоту для единообразия */
-}
-.card-hero:hover {
-    border-color: var(--brand-blue);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    transform: translateY(-2px);
-}
-.hero-icon {
-    flex-shrink: 0;
-    width: 44px; height: 44px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
 }
 
-/* Карточка User/Dev (вертикальная) */
-.card-u, .card-res {
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
+.card-hero {
     padding: 24px;
-    transition: all 0.2s ease;
+    display: flex; align-items: flex-start; gap: 20px;
+    min-height: 110px;
+}
+.card-u, .card-res {
+    padding: 24px;
     display: flex; flex-direction: column; height: 100%;
 }
-.card-u:hover, .card-res:hover {
+
+/* Hover эффекты */
+.card-hero:hover, .card-u:hover, .card-res:hover {
+    background: #fff; /* При наведении белеют */
     border-color: var(--brand-blue);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-.u-icon, .res-icon {
-    width: 52px; height: 52px; border-radius: 12px; margin-bottom: 20px;
-    display: flex; align-items: center; justify-content: center; font-size: 22px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
 }
 
-/* ЦВЕТА ПЛАШЕК И ИКОНОК */
-/* Если нужно залить саму карточку цветом - добавь background сюда */
+/* Иконки */
+.hero-icon, .u-icon, .res-icon {
+    flex-shrink: 0; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+}
+.hero-icon { width: 44px; height: 44px; font-size: 20px; }
+.u-icon, .res-icon { width: 52px; height: 52px; margin-bottom: 20px; font-size: 22px; }
+
 .i-blue { background: #E3F2FD; color: #0C65AF; }
 .i-green { background: #E8F5E9; color: #2E7D32; }
 .i-orange { background: #FFF3E0; color: #EF6C00; }
@@ -194,99 +153,42 @@ ul { list-style: none; padding: 0; margin: 0; }
 .i-red { background: #FFEBEE; color: #C62828; }
 .i-cyan { background: #E0F7FA; color: #00838F; }
 
-/* Тексты в карточках */
-.card-tag {
-    font-size: 11px; text-transform: uppercase; color: var(--text-sec);
-    font-weight: 700; margin-bottom: 12px; display: block; letter-spacing: 0.05em;
-}
+/* Тексты */
+.card-tag { font-size: 11px; text-transform: uppercase; color: var(--text-sec); font-weight: 700; margin-bottom: 12px; display: block; letter-spacing: 0.05em; }
 h3 { margin: 0 0 6px 0; font-size: 17px; color: var(--text-main); font-weight: 700; }
 h4 { margin: 0 0 8px 0; font-size: 17px; font-weight: 700; color: var(--text-main); }
 p { margin: 0; color: var(--text-sec); font-size: 15px; line-height: 1.5; }
 
-/* --- 6. FAQ --- */
+/* FAQ */
 .faq-col { display: flex; flex-direction: column; gap: 16px; }
-
-.faq-card {
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
+.faq-card { background: #fff; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
 .faq-header {
-    background-color: var(--bg-gray);
-    padding: 18px 24px;
+    background-color: var(--bg-gray); padding: 18px 24px;
     display: flex; align-items: center; justify-content: space-between;
     cursor: pointer; font-weight: 600; font-size: 16px;
-    list-style: none;
 }
 .faq-header::-webkit-details-marker { display: none; }
-.arrow {
-    width: 8px; height: 8px;
-    border-right: 2px solid var(--text-sec); border-bottom: 2px solid var(--text-sec);
-    transform: rotate(45deg); transition: transform 0.2s;
-}
+.arrow { width: 8px; height: 8px; border-right: 2px solid var(--text-sec); border-bottom: 2px solid var(--text-sec); transform: rotate(45deg); transition: transform 0.2s; }
 details[open] .arrow { transform: rotate(-135deg); border-color: var(--brand-blue); }
 .faq-content { padding: 24px; background: #fff; border-top: 1px solid var(--border-color); }
 .faq-content a { display: block; padding: 6px 0; color: var(--brand-blue); font-size: 15px; }
 
-/* --- 7. РЕСУРСЫ --- */
-.card-res {
-    background: var(--bg-gray); /* СЕРЫЙ ФОН ДЛЯ РЕСУРСОВ */
-    border: none;
-}
-.res-list { margin-top: 15px; }
-.res-list li { margin-bottom: 8px; padding-left: 14px; position: relative; font-size: 15px; }
-.res-list li::before {
-    content: "•"; color: var(--brand-blue); position: absolute; left: 0; font-weight: bold;
-}
-
-/* --- 8. ПОДВАЛ (FOOTER) --- */
-.footer {
-    background: #fff;
-    border-top: 1px solid var(--border-color);
-    padding: 50px 0;
-    margin-top: auto;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 300px; /* Та же сетка, что у body */
-    gap: 60px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-/* ЛОГОТИП ФУТЕРА */
+/* Футер */
+.footer { background: #fff; border-top: 1px solid var(--border-color); padding: 50px 0; margin-top: auto; }
+.footer-grid { display: grid; grid-template-columns: 1fr 300px; gap: 40px; }
+.footer-content { display: flex; justify-content: space-between; width: 100%; }
 .f-logo { margin-bottom: 20px; }
-/* Класс для длинного логотипа */
-.f-logo-img {
-    height: 40px; /* Ограничиваем высоту */
-    width: auto;  /* Ширина подстроится */
-    max-width: 100%; /* На всякий случай */
-    display: block;
-}
-
+.f-logo-img { height: 40px; width: auto; max-width: 100%; display: block; } /* Лого футера не растягивается */
 .f-brand-col p { color: #999; font-size: 13px; margin-top: 15px; max-width: 250px; line-height: 1.4; }
 .f-links-compact { display: flex; gap: 80px; }
 .f-col h5 { margin: 0 0 20px 0; font-size: 13px; text-transform: uppercase; color: #999; letter-spacing: 0.05em; font-weight: 700; }
 .f-col li { margin-bottom: 12px; font-size: 15px; cursor: pointer; color: var(--text-main); }
 .f-col li:hover { color: var(--brand-blue); }
-
 .f-socials { display: flex; gap: 12px; margin-top: 20px; }
-.soc-circle {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: #F0F2F4; color: var(--text-sec);
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s; font-size: 16px;
-}
+.soc-circle { width: 36px; height: 36px; border-radius: 50%; background: #F0F2F4; color: var(--text-sec); display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 16px; }
 .soc-circle:hover { background: var(--brand-blue); color: #fff; transform: translateY(-2px); }
 
-/* АДАПТИВ */
+/* Адаптив */
 @media (max-width: 1024px) {
     .main-layout, .footer-grid { grid-template-columns: 1fr; }
     .footer-grid { display: block; }

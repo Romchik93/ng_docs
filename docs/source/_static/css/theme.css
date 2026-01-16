@@ -298,3 +298,42 @@ details[open] .faq-header { border-bottom: 1px solid #f0f0f0; }
     .footer-compact { flex-direction: column; gap: 40px; }
     .f-links-compact { flex-direction: column; gap: 30px; }
 }
+
+/* 1. Сетка на 5 колонок для блока "Мне нужно..." (для 1920/1400px экранов) */
+.five-col { 
+    grid-template-columns: repeat(5, 1fr); 
+}
+
+/* 2. Социальные иконки в футере */
+.f-socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.soc-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #F0F2F4;
+    color: var(--text-sec);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 16px;
+}
+
+.soc-circle:hover {
+    background-color: var(--brand-blue);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Адаптив для 5 колонок */
+@media (max-width: 1200px) {
+    .five-col { grid-template-columns: repeat(3, 1fr); } /* Планшет: по 3 */
+}
+@media (max-width: 768px) {
+    .five-col { grid-template-columns: 1fr; } /* Мобилка: по 1 */
+}

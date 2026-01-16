@@ -31,10 +31,6 @@ html_css_files = [
     'css/style.css',
 ]
 
-def setup(app):
-  app.add_stylesheet('css/custom.css')
-
-
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'

@@ -368,3 +368,90 @@ p code, li code { background: #F0F2F4; color: #E83E8C; padding: 2px 6px; border-
 .f-col h5 { font-size: 12px; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; letter-spacing: 0.5px; }
 .f-col ul { list-style: none; }
 .f-col li { margin-bottom: 10px; font-size: 14px; color: var(--text); }
+
+/* --- СТРУКТУРНЫЕ ПРАВИЛА (GRID SYSTEM) --- */
+
+/* Сетка страницы: Контент (растягивается) + Сайдбар (фиксирован 320px) */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    align-items: start; /* Чтобы сайдбар не растягивался на всю высоту */
+}
+
+/* Настройки сайдбара */
+.sidebar {
+    /* Если нужно, чтобы он "прилипал" при скролле */
+    position: sticky;
+    top: 20px;
+}
+
+.sticky-nav {
+    background: #F8F9FA;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Универсальные сетки для карточек */
+.grid-cards {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+}
+
+.two-col { grid-template-columns: repeat(2, 1fr); }
+.three-col { grid-template-columns: repeat(3, 1fr); }
+.four-col { grid-template-columns: repeat(4, 1fr); }
+
+/* Адаптив (Tablet) */
+@media (max-width: 1024px) {
+    .main-layout {
+        grid-template-columns: 1fr; /* Сайдбар уходит вниз или скрывается */
+    }
+    .three-col, .four-col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .sidebar {
+        display: none; /* Или переносим вниз */
+    }
+}
+
+/* Адаптив (Mobile) */
+@media (max-width: 768px) {
+    .two-col, .three-col, .four-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Стили-заглушки для иконок (пока нет реальных SVG) */
+.hero-icon, .u-icon, .res-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    background-color: #eee; /* Дефолт */
+}
+
+/* Цвета иконок */
+.i-blue { background-color: #E3F2FD; color: #0C65AF; }
+.i-green { background-color: #E8F5E9; color: #2E7D32; }
+.i-orange { background-color: #FFF3E0; color: #EF6C00; }
+.i-purple { background-color: #F3E5F5; color: #7B1FA2; }
+.i-red { background-color: #FFEBEE; color: #C62828; }
+.i-cyan { background-color: #E0F7FA; color: #00838F; }
+
+/* Карточки */
+.card-hero, .card-u, .card-res, .faq-card {
+    background: #fff;
+    border: 1px solid #E1E4E6;
+    border-radius: 8px;
+    padding: 24px;
+    transition: box-shadow 0.2s;
+}
+
+.card-hero:hover, .card-u:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: #0C65AF;
+}

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ language }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=1920">
-    <title>NextGIS Документация — Главная</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project }} — Документация</title>
+    
     <link rel="stylesheet" href="{{ pathto('_static/css/style.css', 1) }}">
+    
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -12,26 +14,32 @@
 <header class="header">
     <div class="container header-content">
         <div class="logo">
-            <a href="index.html">
-                <img src="_static/img/logo.svg">
+            <a href="{{ pathto(master_doc) }}">
+                <img src="{{ pathto('_static/img/logo.svg', 1) }}" alt="NextGIS">
                 <span class="logo-divider"></span>
                 <span class="logo-text">Документация</span>
             </a>
         </div>
         <div class="header-right">
-            <input type="text" class="search-input" placeholder="Поиск по документации">
-            <button class="btn-login">Войти</button>
+            <form action="{{ pathto('search') }}" method="get" class="search-form">
+                <input type="search" name="q" class="search-input" placeholder="Поиск по документации...">
+                <input type="hidden" name="check_keywords" value="yes">
+                <input type="hidden" name="area" value="default">
+            </form>
+            <a href="https://my.nextgis.com" class="btn-login">Войти</a>
         </div>
     </div>
 </header>
 
 <div class="container main-layout">
+    
     <main class="content-area">
         
         <section id="need" class="section">
             <h1 class="main-title">Мне нужно...</h1>
             <p class="section-desc">Выберите то, что вам сейчас необходимо, чтобы быстро найти нужную информацию.</p>
-            <div class="grid-450">
+            
+            <div class="grid-cards three-col">
                 <div class="card-hero"><div class="hero-icon i-blue"></div><div class="hero-body"><h3>Начало работы</h3><p>Создание аккаунта и первые шаги</p></div></div>
                 <div class="card-hero"><div class="hero-icon i-green"></div><div class="hero-body"><h3>Частые вопросы</h3><p>Ответы на популярные вопросы</p></div></div>
                 <div class="card-hero"><div class="hero-icon i-orange"></div><div class="hero-body"><h3>Юзергиды</h3><p>Инструкции по продуктам</p></div></div>
@@ -47,9 +55,10 @@
 
         <section id="guides" class="section">
             <h2 class="h2">Подробные юзергиды по ПО и сервисам</h2>
+            
             <div id="for-users" class="subsection">
                 <div class="group-label"><h3>ДЛЯ ПОЛЬЗОВАТЕЛЕЙ</h3></div>
-                <div class="grid-332">
+                <div class="grid-cards four-col">
                     <div class="card-u"><div class="u-icon i-blue"></div><h4>NextGIS Web</h4><p>Веб-ГИС платформа</p></div>
                     <div class="card-u"><div class="u-icon i-green"></div><h4>Toolbox</h4><p>Геообработка онлайн</p></div>
                     <div class="card-u"><div class="u-icon i-orange"></div><h4>GeoServices</h4><p>Базовые карты</p></div>
@@ -64,9 +73,10 @@
                     <div class="card-u"><div class="u-icon i-cyan"></div><h4>Tracker</h4><p>Мониторинг</p></div>
                 </div>
             </div>
+
             <div id="for-devs" class="subsection">
                 <div class="group-label"><h3>ДЛЯ РАЗРАБОТЧИКОВ</h3></div>
-                <div class="grid-450">
+                <div class="grid-cards three-col">
                     <div class="card-hero"><div class="hero-icon i-blue"></div><div class="hero-body"><h3>Web API</h3><p>REST-документация</p></div></div>
                     <div class="card-hero"><div class="hero-icon i-green"></div><div class="hero-body"><h3>Mobile SDK</h3><p>Android-библиотеки</p></div></div>
                     <div class="card-hero"><div class="hero-icon i-orange"></div><div class="hero-body"><h3>QMS API</h3><p>Доступ к сервису</p></div></div>
@@ -80,7 +90,7 @@
         <section id="faq" class="section">
             <h2 class="h2">Часто задаваемые вопросы</h2>
             <p class="section-desc">Ответы на популярные вопросы, сгруппированные по основным темам.</p>
-            <div class="grid-688">
+            <div class="grid-cards two-col">
                 <div class="faq-col">
                     <details class="faq-card">
                         <summary class="faq-header"><span>Аккаунт</span><i class="arrow"></i></summary>
@@ -95,13 +105,6 @@
                         <div class="faq-content">
                             <a href="#">Роли пользователей</a>
                             <a href="#">Добавление в команду</a>
-                        </div>
-                    </details>
-                    <details class="faq-card">
-                        <summary class="faq-header"><span>Система координат</span><i class="arrow"></i></summary>
-                        <div class="faq-content">
-                            <a href="#">EPSG:3857</a>
-                            <a href="#">Трансформация</a>
                         </div>
                     </details>
                 </div>
@@ -127,104 +130,23 @@
 
         <section id="res" class="section">
             <h2 class="h2">Дополнительные ресурсы</h2>
-            <div class="grid-450">
+            <div class="grid-cards three-col">
                 <div class="card-res">
                     <div class="res-icon i-red"></div>
                     <h4>Документация в PDF</h4>
-                    <p>Официальные руководства</p>
                     <ul class="res-list">
                         <li><a href="#">NextGIS Web (PDF)</a></li>
                         <li><a href="#">NextGIS QGIS (PDF)</a></li>
-                        <li><a href="#">NextGIS Mobile (PDF)</a></li>
                     </ul>
                 </div>
                 <div class="card-res">
                     <div class="res-icon i-green"></div>
-                    <h4>Глоссарий терминов</h4>
-                    <p>Справочник понятий</p>
+                    <h4>Глоссарий</h4>
                     <ul class="res-list">
                         <li><a href="#">Словарь ГИС терминов</a></li>
-                        <li><a href="#">База понятий API</a></li>
                     </ul>
                 </div>
                 <div class="card-res">
                     <div class="res-icon i-blue"></div>
                     <h4>Видеоуроки</h4>
-                    <p>Наглядные инструкции</p>
-                    <ul class="res-list">
-                        <li><a href="#">YouTube Канал</a></li>
-                        <li><a href="#">Архив вебинаров</a></li>
-                        <li><a href="#">Кейсы использования</a></li>
-                    </ul>
-                </div>
-                <div class="card-res">
-                    <div class="res-icon i-orange"></div>
-                    <h4>Обучающие курсы</h4>
-                    <p>Сертификация</p>
-                    <ul class="res-list">
-                        <li><a href="#">Программы обучения</a></li>
-                        <li><a href="#">Расписание курсов</a></li>
-                    </ul>
-                </div>
-                <div class="card-res">
-                    <div class="res-icon i-purple"></div>
-                    <h4>NextGIS Вики</h4>
-                    <p>База знаний</p>
-                    <ul class="res-list">
-                        <li><a href="#">Перейти в Вики</a></li>
-                        <li><a href="#">Статьи сообщества</a></li>
-                    </ul>
-                </div>
-                <div class="card-res">
-                    <div class="res-icon i-cyan"></div>
-                    <h4>Мероприятия</h4>
-                    <p>Встречи и конференции</p>
-                    <ul class="res-list">
-                        <li><a href="#">Анонсы конференций</a></li>
-                        <li><a href="#">Записи митапов</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <aside class="sidebar main-sidebar">
-        <nav class="sticky-nav">
-            <ul class="nav-tree">
-                <li class="active"><a href="#need">Мне нужно...</a></li>
-                <li>
-                    <a href="#guides">Юзергиды</a>
-                    <ul class="sub-tree">
-                        <li><a href="#for-users">Пользователям</a></li>
-                        <li><a href="#for-devs">Разработчикам</a></li>
-                    </ul>
-                </li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#res">Ресурсы</a></li>
-            </ul>
-        </nav>
-    </aside>
-</div>
-
-<footer class="footer">
-    <div class="container footer-compact">
-        <div class="f-brand-col">
-            <div class="f-logo"><img src="https://nextgis.ru/wp-content/themes/nextgis/img/logo.svg" alt=""><span>NextGIS</span></div>
-            <button class="f-btn-login">Войти</button>
-            <div class="f-socials">
-                <a href="#" class="soc-circle">vk</a>
-                <a href="#" class="soc-circle">tg</a>
-                <a href="#" class="soc-circle">yt</a>
-            </div>
-        </div>
-        <div class="f-links-compact">
-            <div class="f-col"><h5>Продукты</h5><ul><li>Web</li><li>QGIS</li><li>Mobile</li></ul></div>
-            <div class="f-col"><h5>Ресурсы</h5><ul><li>Цены</li><li>Обучение</li><li>Блог</li></ul></div>
-            <div class="f-col"><h5>Поддержка</h5><ul><li>Контакты</li><li>Форум</li><li>Чат</li></ul></div>
-        </div>
-    </div>
-</footer>
-
-</body>
-
-</html>
+                    <ul class="res-list

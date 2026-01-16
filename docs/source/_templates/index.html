@@ -7,7 +7,6 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="{{ pathto('_static/css/theme.css', 1) }}">
 </head>
 <body>
@@ -40,18 +39,45 @@
             <h1 class="main-title">Мне нужно...</h1>
             <p class="section-desc">Выберите то, что вам сейчас необходимо, чтобы быстро найти нужную информацию.</p>
             
-            <div class="grid-cards five-col">
-                <div class="card-hero"><div class="hero-icon i-blue"><i class="fa fa-flag"></i></div><div class="hero-body"><h3>Начало работы</h3><p>Создание аккаунта и первые шаги</p></div></div>
-                <div class="card-hero"><div class="hero-icon i-green"><i class="fa fa-question"></i></div><div class="hero-body"><h3>Частые вопросы</h3><p>Ответы на популярные вопросы</p></div></div>
-                <div class="card-hero"><div class="hero-icon i-orange"><i class="fa fa-book"></i></div><div class="hero-body"><h3>Юзергиды</h3><p>Инструкции по продуктам</p></div></div>
-                <div class="card-hero"><div class="hero-icon i-purple"><i class="fa fa-globe"></i></div><div class="hero-body"><h3>Публикация</h3><p>Работа с веб-картами</p></div></div>
-                <div class="card-hero"><div class="hero-icon i-red"><i class="fa fa-puzzle-piece"></i></div><div class="hero-body"><h3>Интеграция</h3><p>Связь QGIS и Web GIS</p></div></div>
+            <div class="grid-cards three-col">
+                <div class="card-hero">
+                    <div class="hero-icon i-blue"><i class="fa fa-flag"></i></div>
+                    <div class="hero-body"><h3>Начало работы</h3><p>Создание аккаунта и первые шаги</p></div>
+                </div>
+                <div class="card-hero">
+                    <div class="hero-icon i-green"><i class="fa fa-question"></i></div>
+                    <div class="hero-body"><h3>Частые вопросы</h3><p>Ответы на популярные вопросы</p></div>
+                </div>
+                <div class="card-hero">
+                    <div class="hero-icon i-orange"><i class="fa fa-book"></i></div>
+                    <div class="hero-body"><h3>Юзергиды</h3><p>Инструкции по продуктам</p></div>
+                </div>
                 
-                <div class="card-hero"><div class="hero-icon i-cyan"><i class="fa fa-map-marker-alt"></i></div><div class="hero-body"><h3>Трекинг</h3><p>GPS-мониторинг объектов</p></div></div>
-                <div class="card-hero"><div class="hero-icon i-blue"><i class="fa fa-mobile-alt"></i></div><div class="hero-body"><h3>Сбор данных</h3><p>Полевые работы в Mobile</p></div></div>
-                <div class="card-hero"><div class="hero-icon i-green"><i class="fa fa-layer-group"></i></div><div class="hero-body"><h3>Базовые карты</h3><p>Офлайн и GeoServices</p></div></div>
-                <div class="card-hero"><div class="hero-icon i-orange"><i class="fa fa-database"></i></div><div class="hero-body"><h3>Данные</h3><p>Заказ наборов геоданных</p></div></div>
-                <div class="card-hero"><div class="hero-icon i-purple"><i class="fa fa-exchange-alt"></i></div><div class="hero-body"><h3>Миграция</h3><p>Переход с других систем</p></div></div>
+                <div class="card-hero">
+                    <div class="hero-icon i-purple"><i class="fa fa-globe"></i></div>
+                    <div class="hero-body"><h3>Публикация</h3><p>Работа с веб-картами</p></div>
+                </div>
+                <div class="card-hero">
+                    <div class="hero-icon i-red"><i class="fa fa-puzzle-piece"></i></div>
+                    <div class="hero-body"><h3>Интеграция</h3><p>Связь QGIS и Web GIS</p></div>
+                </div>
+                <div class="card-hero">
+                    <div class="hero-icon i-cyan"><i class="fa fa-map-marker-alt"></i></div>
+                    <div class="hero-body"><h3>Трекинг</h3><p>GPS-мониторинг объектов</p></div>
+                </div>
+                
+                <div class="card-hero">
+                    <div class="hero-icon i-blue"><i class="fa fa-mobile-alt"></i></div>
+                    <div class="hero-body"><h3>Сбор данных</h3><p>Полевые работы в Mobile</p></div>
+                </div>
+                <div class="card-hero">
+                    <div class="hero-icon i-green"><i class="fa fa-layer-group"></i></div>
+                    <div class="hero-body"><h3>Базовые карты</h3><p>Офлайн и GeoServices</p></div>
+                </div>
+                <div class="card-hero">
+                    <div class="hero-icon i-orange"><i class="fa fa-database"></i></div>
+                    <div class="hero-body"><h3>Данные</h3><p>Заказ наборов геоданных</p></div>
+                </div>
             </div>
         </section>
 
@@ -65,20 +91,68 @@
                 </div>
                 
                 <div class="grid-cards four-col">
-                    <div class="card-u"><div class="u-icon i-blue"><i class="fa fa-globe"></i></div><h4>NextGIS Web</h4><p>Веб-ГИС платформа</p></div>
-                    <div class="card-u"><div class="u-icon i-green"><i class="fa fa-tools"></i></div><h4>Toolbox</h4><p>Геообработка онлайн</p></div>
-                    <div class="card-u"><div class="u-icon i-orange"><i class="fa fa-map"></i></div><h4>GeoServices</h4><p>Базовые карты</p></div>
-                    <div class="card-u"><div class="u-icon i-purple"><i class="fa fa-database"></i></div><h4>Data</h4><p>Продажа данных</p></div>
+                    <div class="card-u">
+                        <span class="card-tag">Веб</span>
+                        <div class="u-icon i-blue"><i class="fa fa-globe"></i></div>
+                        <h4>NextGIS Web</h4><p>Веб-ГИС платформа</p>
+                    </div>
+                    <div class="card-u">
+                        <span class="card-tag">Веб</span>
+                        <div class="u-icon i-green"><i class="fa fa-tools"></i></div>
+                        <h4>NextGIS Toolbox</h4><p>Геообработка онлайн</p>
+                    </div>
+                    <div class="card-u">
+                        <span class="card-tag">Сервисы</span>
+                        <div class="u-icon i-orange"><i class="fa fa-map"></i></div>
+                        <h4>NextGIS GeoServices</h4><p>Базовые карты</p>
+                    </div>
+                    <div class="card-u">
+                        <span class="card-tag">Данные</span>
+                        <div class="u-icon i-purple"><i class="fa fa-database"></i></div>
+                        <h4>NextGIS Data</h4><p>Продажа данных</p>
+                    </div>
                     
-                    <div class="card-u"><div class="u-icon i-red"><i class="fa fa-desktop"></i></div><h4>NextGIS QGIS</h4><p>Настольная ГИС</p></div>
-                    <div class="card-u"><div class="u-icon i-cyan"><i class="fa fa-plug"></i></div><h4>Connect</h4><p>Плагин для QGIS</p></div>
-                    <div class="card-u"><div class="u-icon i-blue"><i class="fa fa-layer-group"></i></div><h4>QMS</h4><p>Слой-каталог</p></div>
-                    <div class="card-u"><div class="u-icon i-green"><i class="fa fa-home"></i></div><h4>Rosreestr</h4><p>Данные ЕГРН</p></div>
+                    <div class="card-u">
+                        <span class="card-tag">Настольная</span>
+                        <div class="u-icon i-red"><i class="fa fa-desktop"></i></div>
+                        <h4>NextGIS QGIS</h4><p>Настольная ГИС</p>
+                    </div>
+                    <div class="card-u">
+                        <span class="card-tag">Настольная</span>
+                        <div class="u-icon i-cyan"><i class="fa fa-plug"></i></div>
+                        <h4>NextGIS Connect</h4><p>Плагин для QGIS</p>
+                    </div>
+                    <div class="card-u">
+                        <span class="card-tag">Настольная</span>
+                        <div class="u-icon i-blue"><i class="fa fa-layer-group"></i></div>
+                        <h4>NextGIS QMS</h4><p>Слой-каталог</p>
+                    </div>
+                    <div class="card-u">
+                        <span class="card-tag">Данные</span>
+                        <div class="u-icon i-green"><i class="fa fa-home"></i></div>
+                        <h4>Rosreestr</h4><p>Данные ЕГРН</p>
+                    </div>
                     
-                    <div class="card-u"><div class="u-icon i-orange"><i class="fa fa-edit"></i></div><h4>Formbuilder</h4><p>Дизайнер форм</p></div>
-                    <div class="card-u"><div class="u-icon i-purple"><i class="fa fa-mobile"></i></div><h4>Mobile</h4><p>ГИС в Android</p></div>
-                    <div class="card-u"><div class="u-icon i-red"><i class="fa fa-clipboard-list"></i></div><h4>Collector</h4><p>Сбор в поле</p></div>
-                    <div class="card-u"><div class="u-icon i-cyan"><i class="fa fa-route"></i></div><h4>Tracker</h4><p>Мониторинг</p></div>
+                    <div class="card-u">
+                        <span class="card-tag">Веб</span>
+                        <div class="u-icon i-orange"><i class="fa fa-edit"></i></div>
+                        <h4>Formbuilder</h4><p>Дизайнер форм</p>
+                    </div>
+                    <div class="card-u">
+                        <span class="card-tag">Мобильная</span>
+                        <div class="u-icon i-purple"><i class="fa fa-mobile"></i></div>
+                        <h4>NextGIS Mobile</h4><p>ГИС в Android</p>
+                    </div>
+                    <div class="card-u">
+                        <span class="card-tag">Мобильная</span>
+                        <div class="u-icon i-red"><i class="fa fa-clipboard-list"></i></div>
+                        <h4>NextGIS Collector</h4><p>Сбор в поле</p>
+                    </div>
+                    <div class="card-u">
+                        <span class="card-tag">Мобильная</span>
+                        <div class="u-icon i-cyan"><i class="fa fa-route"></i></div>
+                        <h4>NextGIS Tracker</h4><p>Мониторинг</p>
+                    </div>
                 </div>
             </div>
 
@@ -88,41 +162,58 @@
                     <h3>ДЛЯ РАЗРАБОТЧИКОВ</h3>
                 </div>
                 <div class="grid-cards three-col">
-                    <div class="card-hero"><div class="hero-icon i-blue"><i class="fa fa-server"></i></div><div class="hero-body"><h3>Web API</h3><p>REST-документация</p></div></div>
-                    <div class="card-hero"><div class="hero-icon i-green"><i class="fa fa-android"></i></div><div class="hero-body"><h3>Mobile SDK</h3><p>Android-библиотеки</p></div></div>
-                    <div class="card-hero"><div class="hero-icon i-orange"><i class="fa fa-cloud"></i></div><div class="hero-body"><h3>QMS API</h3><p>Доступ к сервису</p></div></div>
-                    <div class="card-hero"><div class="hero-icon i-purple"><i class="fa fa-code-branch"></i></div><div class="hero-body"><h3>Formbuilder API</h3><p>Управление формами</p></div></div>
-                    <div class="card-hero"><div class="hero-icon i-red"><i class="fa fa-satellite-dish"></i></div><div class="hero-body"><h3>Tracker API</h3><p>Прием данных</p></div></div>
-                    <div class="card-hero"><div class="hero-icon i-cyan"><i class="fa fa-box"></i></div><div class="hero-body"><h3>Docker</h3><p>Установка ПО</p></div></div>
+                    <div class="card-hero">
+                        <div class="hero-icon i-blue"><i class="fa fa-server"></i></div>
+                        <div class="hero-body"><h3>Web API</h3><p>Документация REST API</p></div>
+                    </div>
+                    <div class="card-hero">
+                        <div class="hero-icon i-green"><i class="fa fa-android"></i></div>
+                        <div class="hero-body"><h3>Mobile SDK</h3><p>Библиотеки Android</p></div>
+                    </div>
+                    <div class="card-hero">
+                        <div class="hero-icon i-orange"><i class="fa fa-cloud"></i></div>
+                        <div class="hero-body"><h3>QMS API</h3><p>Доступ к сервису</p></div>
+                    </div>
+                    <div class="card-hero">
+                        <div class="hero-icon i-purple"><i class="fa fa-code-branch"></i></div>
+                        <div class="hero-body"><h3>Formbuilder API</h3><p>Управление формами</p></div>
+                    </div>
+                    <div class="card-hero">
+                        <div class="hero-icon i-red"><i class="fa fa-satellite-dish"></i></div>
+                        <div class="hero-body"><h3>Tracker API</h3><p>Прием данных</p></div>
+                    </div>
+                    <div class="card-hero">
+                        <div class="hero-icon i-cyan"><i class="fa fa-box"></i></div>
+                        <div class="hero-body"><h3>On-Premise</h3><p>Установка ПО (Docker)</p></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="faq" class="section">
             <h2 class="h2">Часто задаваемые вопросы</h2>
-            <p class="section-desc">Ответы на популярные вопросы, сгруппированные по основным темам.</p>
             <div class="grid-cards two-col">
                 <div class="faq-col">
                     <details class="faq-card">
-                        <summary class="faq-header"><span>Аккаунт</span><i class="arrow"></i></summary>
+                        <summary class="faq-header"><span>Аккаунт и доступ</span><i class="arrow"></i></summary>
                         <div class="faq-content">
-                            <a href="#">Вход в NextGIS ID</a>
-                            <a href="#">Восстановление пароля</a>
+                            <a href="#">Как восстановить пароль?</a>
+                            <a href="#">Где мои подписки?</a>
                             <a href="#">Как оформить подписку?</a>
                         </div>
                     </details>
                     <details class="faq-card">
-                        <summary class="faq-header"><span>Пользователи и команда</span><i class="arrow"></i></summary>
+                        <summary class="faq-header"><span>Командная работа</span><i class="arrow"></i></summary>
                         <div class="faq-content">
-                            <a href="#">Роли пользователей</a>
-                            <a href="#">Добавление в команду</a>
+                            <a href="#">Добавление пользователей</a>
+                            <a href="#">Роли и права</a>
                         </div>
                     </details>
                     <details class="faq-card">
-                        <summary class="faq-header"><span>Система координат</span><i class="arrow"></i></summary>
+                        <summary class="faq-header"><span>Системы координат</span><i class="arrow"></i></summary>
                         <div class="faq-content">
                             <a href="#">EPSG:3857</a>
-                            <a href="#">Трансформация</a>
+                            <a href="#">Трансформация растров</a>
                         </div>
                     </details>
                 </div>
@@ -130,14 +221,14 @@
                     <details class="faq-card">
                         <summary class="faq-header"><span>Веб ГИС</span><i class="arrow"></i></summary>
                         <div class="faq-content">
-                            <a href="#">Создание карты</a>
-                            <a href="#">Импорт ресурсов</a>
+                            <a href="#">Создание веб-карты</a>
+                            <a href="#">Импорт ресурсов (WFS, CSV)</a>
                         </div>
                     </details>
-                    <details class="faq-card" open>
+                    <details class="faq-card">
                         <summary class="faq-header"><span>QGIS + Веб ГИС</span><i class="arrow"></i></summary>
                         <div class="faq-content">
-                            <a href="#">Настройка Connect</a>
+                            <a href="#">Настройка NextGIS Connect</a>
                             <a href="#">Синхронизация стилей</a>
                             <a href="#">Офлайн-редактирование</a>
                         </div>
@@ -175,34 +266,6 @@
                     <ul class="res-list">
                         <li><a href="#">YouTube Канал</a></li>
                         <li><a href="#">Архив вебинаров</a></li>
-                        <li><a href="#">Кейсы использования</a></li>
-                    </ul>
-                </div>
-                <div class="card-res">
-                    <div class="res-icon i-orange"><i class="fa fa-graduation-cap"></i></div>
-                    <h4>Обучающие курсы</h4>
-                    <p>Сертификация</p>
-                    <ul class="res-list">
-                        <li><a href="#">Программы обучения</a></li>
-                        <li><a href="#">Расписание курсов</a></li>
-                    </ul>
-                </div>
-                <div class="card-res">
-                    <div class="res-icon i-purple"><i class="fa fa-info-circle"></i></div>
-                    <h4>NextGIS Вики</h4>
-                    <p>База знаний</p>
-                    <ul class="res-list">
-                        <li><a href="#">Перейти в Вики</a></li>
-                        <li><a href="#">Статьи сообщества</a></li>
-                    </ul>
-                </div>
-                <div class="card-res">
-                    <div class="res-icon i-cyan"><i class="fa fa-users"></i></div>
-                    <h4>Мероприятия</h4>
-                    <p>Встречи и конференции</p>
-                    <ul class="res-list">
-                        <li><a href="#">Анонсы конференций</a></li>
-                        <li><a href="#">Записи митапов</a></li>
                     </ul>
                 </div>
             </div>
@@ -225,27 +288,52 @@
             </ul>
         </nav>
     </aside>
+
 </div>
 
 <footer class="footer">
-    <div class="container footer-compact">
-        <div class="f-brand-col">
-            <div class="f-logo">
-                <img src="{{ pathto('_static/img/logo.svg', 1) }}" alt="">
-                <span>NextGIS</span>
+    <div class="container footer-grid">
+        <div class="footer-content">
+            <div class="f-brand-col">
+                <div class="f-logo">
+                    <img src="{{ pathto('_static/img/logo.svg', 1) }}" alt="">
+                    <span>NextGIS</span>
+                </div>
+                <p>&copy; 2024 NextGIS. Все права защищены.</p>
+                <div class="f-socials">
+                    <a href="#" class="soc-circle"><i class="fab fa-vk"></i></a>
+                    <a href="#" class="soc-circle"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" class="soc-circle"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
-            <p>&copy; 2024 NextGIS. Все права защищены.</p>
-            <div class="f-socials">
-                <a href="#" class="soc-circle"><i class="fab fa-vk"></i></a>
-                <a href="#" class="soc-circle"><i class="fab fa-telegram-plane"></i></a>
-                <a href="#" class="soc-circle"><i class="fab fa-youtube"></i></a>
+            <div class="f-links-compact">
+                <div class="f-col">
+                    <h5>Продукты</h5>
+                    <ul>
+                        <li>NextGIS Web</li>
+                        <li>NextGIS QGIS</li>
+                        <li>NextGIS Mobile</li>
+                    </ul>
+                </div>
+                <div class="f-col">
+                    <h5>Ресурсы</h5>
+                    <ul>
+                        <li>Цены</li>
+                        <li>Обучение</li>
+                        <li>Блог</li>
+                    </ul>
+                </div>
+                <div class="f-col">
+                    <h5>Поддержка</h5>
+                    <ul>
+                        <li>Контакты</li>
+                        <li>Форум</li>
+                        <li>Чат</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="f-links-compact">
-            <div class="f-col"><h5>Продукты</h5><ul><li>Web</li><li>QGIS</li><li>Mobile</li></ul></div>
-            <div class="f-col"><h5>Ресурсы</h5><ul><li>Цены</li><li>Обучение</li><li>Блог</li></ul></div>
-            <div class="f-col"><h5>Поддержка</h5><ul><li>Контакты</li><li>Форум</li><li>Чат</li></ul></div>
-        </div>
+        <div></div>
     </div>
 </footer>
 

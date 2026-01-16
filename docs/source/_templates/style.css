@@ -1,0 +1,370 @@
+/* ==========================================================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================================================== */
+:root {
+    /* Brand Colors */
+    --blue: #0C65AF;
+    --text: #1D1D1B;
+    --sub: #56738F;
+    --card: #F0F2F4;
+    --border: #E1E4E8;
+    --white: #ffffff;
+    
+    /* Utility Colors (Icons) */
+    --c-blue: #0C65AF;
+    --c-green: #27AE60;
+    --c-orange: #F2994A;
+    --c-purple: #9B51E0;
+    --c-red: #EB5757;
+    --c-cyan: #00B4D8;
+
+    /* Layout Dimensions */
+    --w-container: 1760px; 
+    --w-content-main: 1400px; /* Content width for Main Page */
+    --w-sidebar: 320px;       /* Standard Sidebar width */
+    --gap-main: 40px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { 
+    font-family: 'Roboto', sans-serif; 
+    color: var(--text); 
+    background: #fff; 
+    scroll-behavior: smooth; 
+    min-width: 1760px; /* Force desktop width */
+    line-height: 1.5;
+}
+
+/* Global Container */
+.container { width: var(--w-container); margin: 0 auto; padding: 0; }
+
+
+/* ==========================================================================
+   2. HEADER (SHARED)
+   ========================================================================== */
+.header { 
+    background: #fff; 
+    border-bottom: 1px solid var(--border); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+}
+
+.header-content { height: 65px; display: flex; justify-content: space-between; align-items: center; }
+
+/* Logo Area */
+.logo { display: flex; align-items: center; }
+.logo a { display: flex; align-items: center; gap: 15px; text-decoration: none; margin-right: 15px; }
+.logo-divider { width: 1px; height: 24px; background: var(--border); margin-right: 15px; }
+
+/* HEADER TOGGLE BUTTON (Hidden by default, visible on .page-article) */
+.header-toggle-btn {
+    display: none; /* Hidden on Main Page */
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 12px;
+    transition: all 0.2s;
+}
+
+/* Show button only when body has 'page-article' class */
+.page-article .header-toggle-btn { display: flex; }
+
+.page-article .header-toggle-btn:hover {
+    background: #F0F2F4;
+    border-color: var(--border);
+}
+
+/* Arrow Icon inside Toggle */
+.header-arrow-icon {
+    width: 0; 
+    height: 0; 
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent; 
+    border-right: 6px solid var(--sub); /* Triangle pointing Left */
+    transition: transform 0.3s;
+}
+
+/* Rotate arrow when sidebar is collapsed */
+.header-toggle-btn.collapsed-state .header-arrow-icon {
+    transform: rotate(180deg); /* Points Right */
+}
+
+.logo-text { font-size: 18px; color: var(--sub); }
+
+/* Header Right Side */
+.header-right { display: flex; align-items: center; gap: 20px; }
+.search-input { width: 320px; height: 38px; border: 1px solid var(--border); border-radius: 4px; padding: 0 12px; font-size: 14px; }
+.btn-login { width: 131px; height: 38px; background: var(--blue); color: #fff; border: none; border-radius: 4px; font-weight: 500; cursor: pointer; }
+
+
+/* ==========================================================================
+   3. COMPONENTS (CARDS, TYPOGRAPHY, FAQ)
+   ========================================================================== */
+
+/* Typography & Section spacing */
+.main-title { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.section-desc { font-size: 15px; color: var(--sub); margin-bottom: 32px; max-width: 800px; }
+.h2 { font-size: 24px; font-weight: 600; margin-bottom: 24px; }
+.group-label h3 { font-size: 14px; color: var(--sub); letter-spacing: 1px; margin-bottom: 24px; }
+
+/* Fix anchor scrolling behind sticky header */
+.section, .subsection { margin-bottom: 80px; scroll-margin-top: 100px; }
+
+/* Grids */
+.grid-450 { display: grid; grid-template-columns: repeat(3, 450px); gap: 25px; }
+.grid-332 { display: grid; grid-template-columns: repeat(4, 332px); gap: 24px; }
+.grid-688 { display: grid; grid-template-columns: repeat(2, 688px); gap: 24px; }
+/* Aliases */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 450px); gap: 25px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 332px); gap: 24px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 688px); gap: 24px; }
+
+/* Card Bases */
+.card-hero, .card-u, .card-res, .faq-header { background: var(--card); border-radius: 8px; }
+
+/* Hero Cards (Icons + Text) */
+.card-hero { padding: 24px; display: flex; align-items: center; gap: 16px; height: 110px; }
+.hero-icon { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; }
+.hero-body h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.hero-body p { font-size: 13px; color: var(--sub); }
+
+/* Product Cards (Vertical) */
+.card-u { padding: 32px 24px; text-align: center; }
+.u-icon { width: 40px; height: 40px; background: #fff; border: 1px solid var(--border); margin: 0 auto 16px; border-radius: 6px; }
+
+/* Icon Colors */
+.i-blue { background: #0C65AF; }
+.i-green { background: #27AE60; }
+.i-orange { background: #F2994A; }
+.i-purple { background: #9B51E0; }
+.i-red { background: #EB5757; }
+.i-cyan { background: #00B4D8; }
+
+/* FAQ Accordion */
+.faq-card { margin-bottom: 16px; border: 1px solid transparent; }
+.faq-header { padding: 18px 24px; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 700; cursor: pointer; }
+.faq-header::-webkit-details-marker { display: none; }
+.faq-header .arrow { width: 10px; height: 10px; border-right: 2px solid var(--sub); border-bottom: 2px solid var(--sub); transform: rotate(45deg); transition: 0.3s; }
+.faq-card[open] .arrow { transform: rotate(-135deg); }
+
+.faq-content { border-top: 1px solid #E1E4E8; display: flex; flex-direction: column; padding: 10px 0; }
+.faq-content a { padding: 10px 24px; text-decoration: none; color: var(--sub); font-size: 14px; transition: 0.2s; }
+.faq-content a:hover { background: #E3F2FD; color: var(--blue); font-weight: 500; }
+
+/* Resources Card */
+.card-res { padding: 32px; border-radius: 8px; min-height: 260px; display: flex; flex-direction: column; }
+.res-icon { width: 40px; height: 40px; border-radius: 50%; margin-bottom: 20px; }
+.card-res h4 { font-size: 18px; margin-bottom: 8px; font-weight: 700; }
+.card-res p { font-size: 14px; color: var(--sub); line-height: 1.4; margin-bottom: 20px; flex-grow: 1; }
+.res-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+.res-list a { text-decoration: none; color: var(--blue); font-size: 14px; display: block; width: fit-content; border-bottom: 1px solid transparent; }
+.res-list a:hover { border-bottom-color: var(--blue); }
+
+
+/* ==========================================================================
+   4. MAIN PAGE LAYOUT (INDEX.HTML)
+   ========================================================================== */
+.main-layout { 
+    display: grid; 
+    /* 1400px Content | 320px Sidebar */
+    grid-template-columns: var(--w-content-main) var(--w-sidebar); 
+    gap: var(--gap-main); 
+    margin-top: 48px; 
+    padding-bottom: 100px; 
+}
+
+/* Right Sidebar (Main Page) */
+.main-sidebar .sticky-nav { 
+    position: sticky; 
+    top: 100px; 
+    max-height: calc(100vh - 100px); 
+    overflow-y: auto; 
+}
+
+/* Nav Tree (Shared style, used in both sidebars) */
+.nav-tree { list-style: none; padding-left: 20px; border-left: 2px solid var(--border); }
+.nav-tree li { margin-bottom: 15px; }
+.nav-tree li.active { border-left: 2px solid var(--blue); margin-left: -22px; padding-left: 20px; }
+.nav-tree > li > a { text-decoration: none; color: var(--sub); font-size: 14px; }
+.nav-tree > li.active > a { color: var(--blue); font-weight: 700; }
+.sub-tree { list-style: none; margin-top: 10px; padding-left: 10px; }
+.sub-tree a { font-size: 13px; color: var(--sub); text-decoration: none; transition: 0.2s; }
+.sub-tree a:hover { color: var(--blue); }
+
+
+/* ==========================================================================
+   5. INTERNAL PAGE LAYOUT (ARTICLE.HTML)
+   ========================================================================== */
+.doc-layout {
+    display: grid;
+    /* 320px Sidebar Left | Content Right */
+    grid-template-columns: var(--w-sidebar) 1fr;
+    gap: 40px;
+    margin-top: 40px;
+    padding-bottom: 100px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    align-items: start;
+}
+
+/* Collapsed State (Triggered by Header Button) */
+.doc-layout.sidebar-collapsed {
+    /* Sidebar shrinks to 0px */
+    grid-template-columns: 0px 1fr;
+    gap: 0px;
+}
+
+/* Internal Sidebar Container */
+.doc-sidebar {
+    border-right: 1px solid var(--border);
+    padding-right: 20px;
+    min-height: calc(100vh - 100px);
+    overflow: hidden; /* Essential for clean collapse */
+    transition: all 0.3s;
+    opacity: 1;
+}
+
+/* Hide Sidebar elements when collapsed */
+.doc-layout.sidebar-collapsed .doc-sidebar {
+    padding-right: 0;
+    border-right-color: transparent;
+    opacity: 0;
+}
+
+/* Sidebar Inner Content (Sticky) */
+.sidebar-inner-content {
+    width: 290px; /* Fixed width prevents text reflow during animation */
+    position: sticky; 
+    top: 90px; 
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding-bottom: 40px;
+}
+.sidebar-inner-content::-webkit-scrollbar { width: 4px; }
+.sidebar-inner-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+
+/* Internal Tree Specifics */
+.nav-section-title {
+    font-size: 12px; text-transform: uppercase; color: var(--sub);
+    letter-spacing: 1px; font-weight: 700; margin-bottom: 12px; margin-top: 32px;
+}
+.nav-section-title:first-child { margin-top: 0; }
+
+.doc-tree { list-style: none; }
+.doc-tree li { margin-bottom: 4px; }
+.tree-link {
+    display: block; text-decoration: none; color: var(--text);
+    font-size: 14px; padding: 6px 12px; border-radius: 4px; transition: 0.15s; line-height: 1.4;
+}
+.tree-link:hover { background: #F0F2F4; color: var(--blue); }
+.tree-link.active { background: #E3F2FD; color: var(--blue); font-weight: 500; }
+
+/* Accordion in Internal Sidebar */
+.tree-toggle {
+    cursor: pointer; font-size: 14px; font-weight: 500;
+    padding: 6px 12px; color: var(--text); list-style: none;
+    position: relative; display: flex; justify-content: space-between; align-items: center;
+    border-radius: 4px;
+}
+.tree-toggle:hover { background: #F8F9FA; }
+.tree-toggle::-webkit-details-marker { display: none; }
+.tree-toggle::after {
+    content: ''; width: 6px; height: 6px;
+    border-right: 2px solid #aaa; border-bottom: 2px solid #aaa;
+    transform: rotate(45deg); transition: 0.2s; margin-bottom: 2px;
+}
+details[open] .tree-toggle::after { transform: rotate(225deg); margin-bottom: -2px; }
+
+.tree-sub {
+    list-style: none; margin-top: 2px;
+    padding-left: 12px; margin-left: 12px; border-left: 1px solid var(--border);
+}
+
+
+/* ==========================================================================
+   6. ARTICLE CONTENT (TYPOGRAPHY & ELEMENTS)
+   ========================================================================== */
+.doc-content { background: #fff; min-width: 0; }
+
+/* Breadcrumbs */
+.breadcrumbs { font-size: 13px; color: var(--sub); margin-bottom: 32px; display: flex; align-items: center; gap: 8px; }
+.breadcrumbs a { text-decoration: none; color: var(--sub); transition: 0.2s; }
+.breadcrumbs a:hover { color: var(--blue); }
+.breadcrumbs .current { color: var(--text); font-weight: 500; }
+.sep { font-size: 10px; color: #ccc; }
+
+/* Typography */
+.typography { max-width: 900px; }
+.typography h1 { font-size: 40px; font-weight: 700; margin-bottom: 24px; line-height: 1.2; color: var(--text); }
+.typography .lead { font-size: 18px; line-height: 1.6; color: var(--sub); margin-bottom: 40px; }
+
+.typography h2 { font-size: 28px; font-weight: 700; margin: 56px 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.typography h3 { font-size: 20px; font-weight: 700; margin: 32px 0 16px; }
+
+.typography p { font-size: 16px; line-height: 1.6; margin-bottom: 24px; color: #2D2D2D; }
+.typography ul, .typography ol { margin-bottom: 24px; padding-left: 24px; }
+.typography li { font-size: 16px; line-height: 1.6; margin-bottom: 8px; color: #2D2D2D; }
+
+.typography a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(12, 101, 175, 0.3); transition: 0.2s; }
+.typography a:hover { border-bottom-color: var(--blue); }
+
+.divider { border: 0; height: 1px; background: var(--border); margin: 40px 0; }
+
+/* Code Blocks */
+pre { background: #2D2D2D; color: #f8f8f2; padding: 24px; border-radius: 8px; overflow-x: auto; margin-bottom: 32px; font-family: 'Roboto Mono', monospace; font-size: 14px; line-height: 1.5; }
+code { font-family: 'Roboto Mono', monospace; }
+p code, li code { background: #F0F2F4; color: #E83E8C; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+
+/* Alert Boxes */
+.alert-box { padding: 20px; border-radius: 6px; margin-bottom: 32px; display: flex; gap: 16px; align-items: start; }
+.alert-box.info { background: #E3F2FD; border-left: 4px solid var(--blue); }
+.alert-icon { width: 24px; height: 24px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: 'Roboto Mono'; flex-shrink: 0; }
+.alert-body { font-size: 15px; line-height: 1.5; color: #0C4B85; }
+
+/* Tables */
+.doc-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; font-size: 15px; border: 1px solid var(--border); }
+.doc-table th { text-align: left; background: #F8F9FA; padding: 14px 20px; border-bottom: 2px solid var(--border); font-weight: 700; color: var(--text); }
+.doc-table td { padding: 14px 20px; border-bottom: 1px solid var(--border); color: #333; }
+.doc-table tr:hover td { background: #FAFAFA; }
+
+
+/* ==========================================================================
+   7. FOOTER (SHARED)
+   ========================================================================== */
+.footer { 
+    background: #EDF0F2; 
+    padding: 60px 0; 
+    border-top: 1px solid var(--border); 
+    margin-top: auto; 
+}
+
+.footer-compact { display: flex; gap: 60px; } 
+
+.f-brand-col { width: 280px; display: flex; flex-direction: column; gap: 20px; flex-shrink: 0; }
+.f-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; }
+.f-btn-login { width: 120px; height: 36px; border: 1px solid #C4C4C4; background: none; border-radius: 4px; cursor: pointer; }
+
+.f-socials { display: flex; gap: 10px; }
+.soc-circle { 
+    width: 36px; height: 36px; 
+    background: #fff; 
+    border-radius: 50%; 
+    border: 1px solid var(--border); 
+    display: flex; justify-content: center; align-items: center; 
+    text-decoration: none; 
+    font-size: 11px; color: var(--sub); 
+    text-transform: uppercase; font-weight: 700; 
+    transition: 0.2s; 
+}
+.soc-circle:hover { border-color: var(--blue); color: var(--blue); }
+
+.f-links-compact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; max-width: 500px; }
+.f-col h5 { font-size: 12px; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; letter-spacing: 0.5px; }
+.f-col ul { list-style: none; }
+.f-col li { margin-bottom: 10px; font-size: 14px; color: var(--text); }

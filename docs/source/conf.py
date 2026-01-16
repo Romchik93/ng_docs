@@ -27,6 +27,9 @@ intersphinx_disabled_domains = ['std']
 
 templates_path = ['_templates']
 html_additional_pages = {"index": "index.html"}
+html_css_files = [
+    'css/style.css',
+]
 
 # -- Options for HTML output
 
